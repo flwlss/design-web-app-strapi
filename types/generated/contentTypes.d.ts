@@ -677,6 +677,210 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiEmailEmail extends Schema.SingleType {
+  collectionName: 'emails';
+  info: {
+    singularName: 'email';
+    pluralName: 'emails';
+    displayName: 'Email';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    email: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::email.email',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::email.email',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEmployeeEmployee extends Schema.CollectionType {
+  collectionName: 'employees';
+  info: {
+    singularName: 'employee';
+    pluralName: 'employees';
+    displayName: 'Employee';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    image: Attribute.Media & Attribute.Required;
+    name: Attribute.String & Attribute.Required;
+    post: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    phone: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::employee.employee',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::employee.employee',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHourHour extends Schema.SingleType {
+  collectionName: 'hours';
+  info: {
+    singularName: 'hour';
+    pluralName: 'hours';
+    displayName: 'Hour';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    hour: Attribute.Text & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::hour.hour', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::hour.hour', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMeetingMeeting extends Schema.CollectionType {
+  collectionName: 'meetings';
+  info: {
+    singularName: 'meeting';
+    pluralName: 'meetings';
+    displayName: 'Meeting';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::meeting.meeting',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::meeting.meeting',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiServiceService extends Schema.CollectionType {
+  collectionName: 'services';
+  info: {
+    singularName: 'service';
+    pluralName: 'services';
+    displayName: 'Service';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::service.service',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::service.service',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTelegramTelegram extends Schema.SingleType {
+  collectionName: 'telegrams';
+  info: {
+    singularName: 'telegram';
+    pluralName: 'telegrams';
+    displayName: 'Telegram';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    telegram: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::telegram.telegram',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::telegram.telegram',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiWhatsappWhatsapp extends Schema.SingleType {
+  collectionName: 'whatsapps';
+  info: {
+    singularName: 'whatsapp';
+    pluralName: 'whatsapps';
+    displayName: 'Whatsapp';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    whatsapp: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::whatsapp.whatsapp',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::whatsapp.whatsapp',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -693,6 +897,13 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::email.email': ApiEmailEmail;
+      'api::employee.employee': ApiEmployeeEmployee;
+      'api::hour.hour': ApiHourHour;
+      'api::meeting.meeting': ApiMeetingMeeting;
+      'api::service.service': ApiServiceService;
+      'api::telegram.telegram': ApiTelegramTelegram;
+      'api::whatsapp.whatsapp': ApiWhatsappWhatsapp;
     }
   }
 }

@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "telegrams",
+  "info": {
+    "singularName": "telegram",
+    "pluralName": "telegrams",
+    "displayName": "Telegram"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "telegram": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

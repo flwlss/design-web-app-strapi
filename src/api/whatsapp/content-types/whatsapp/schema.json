@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "whatsapps",
+  "info": {
+    "singularName": "whatsapp",
+    "pluralName": "whatsapps",
+    "displayName": "Whatsapp"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "whatsapp": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
